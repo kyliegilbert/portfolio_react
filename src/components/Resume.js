@@ -8,7 +8,7 @@ export default function Resume () {
   </div>
   <div className='component-info'>
     <button>
-    <a target="_blank" href="https://docs.google.com/document/d/1vz4oNV8APEYhQtA6ufAJ9jlLbBhZFDTL-kcwesBAHs4/edit?usp=sharing">To view Resume please click here! </a>
+    <a target="_blank" href="https://docs.google.com/document/d/1vz4oNV8APEYhQtA6ufAJ9jlLbBhZFDTL-kcwesBAHs4/edit?usp=sharing" rel="noopener noreferrer">To view Resume please click here! </a>
   </button>
   </div>
     

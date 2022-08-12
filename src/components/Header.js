@@ -5,7 +5,7 @@ export default function footer() {
         Find out about
       </p>
       <h1>
-        Kylie Gibert
+        Kylie Gilbert
       </h1>
      
    </div>

@@ -1,61 +1,67 @@
 import React, { useState } from 'react';
 
 function Form() {
-  // Here we set two state variables for firstName and lastName using `useState`
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] =useState('')
+  const [formState, setFormState] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+ 
 
-  const handleInputChange = (e) => {
-    // Getting the value and name of the input which triggered the change
-    const { name, value } = e.target;
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
 
-    // Ternary statement that will call either setFirstName or setLastName based on what field the user is typing in
-    if(!name==='name') {
-      return ;
-    }else 
-    return name === 'name' ? setName(value) : setEmail(value);
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
-  const handleFormSubmit = (e) => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
-    e.preventDefault();
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log()
+    if(!formState.name||!formState.email||!formState.message) {
+      alert(`Please complete all sections of the form`)
 
-    // Alert the user their first and last name, clear the inputs
-    alert(`Hello ${name}`);
-    setName('');
-    setEmail('')
-    setMessage('')
+    }else if(formState.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+      alert(`Thank you for your enquiry ${formState.name}, I will return your email ASAP.`)
+    }
+    else{
+      
+    alert(`Please include a valid email`)
+    
+    }
+    
   };
+
 
   return (
     <div>
       <p>
-        Hello {name}
+        Hello {formState.name}
       </p>
-      <form className="form">
+      <form className="form" onSubmit={handleFormSubmit}>
         <input
-          value={name}
+          value={formState.name}
           name="name"
           onChange={handleInputChange}
           type="text"
           placeholder="Name"
         />
         <input
-          value={email}
+          value={formState.email}
           name="email"
           onChange={handleInputChange}
           type="text"
           placeholder="email"
         />
         <textarea
-          value={message}
+          value={formState.message}
           name="message"
           onChange={handleInputChange}
-          type="textarea"
           placeholder="message"
         />
-        <button type="button" onClick={handleFormSubmit}>
+        <button type="submit" >
           Submit
         </button>
       </form>

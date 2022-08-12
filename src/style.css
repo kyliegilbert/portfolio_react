@@ -94,11 +94,13 @@ nav ul {
     text-decoration: underline;
  }
   
-
+.iconbox {
+    height: 3em;
+}
 nav a {
   background-color: unset;
   color: var(--light-pink);
-  
+  height: 3em;
   font-weight: bold;
   text-decoration: none;
   font-family: var(--default-font);
@@ -107,6 +109,7 @@ nav a {
 nav a:hover {
   background-color: var(--light-pink);
   color: var(--dark-green);
+  height: 3em;
 }
 
 
